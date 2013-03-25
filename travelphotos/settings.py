@@ -10,7 +10,7 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-PROJECT_PATH = os.path.realpath(os.path.dirname(__file__))
+BASE_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
@@ -99,6 +99,8 @@ ROOT_URLCONF = 'travelphotos.urls'
 WSGI_APPLICATION = 'travelphotos.wsgi.application'
 
 TEMPLATE_DIRS = (
+    BASE_PATH + '/photos/templates/',
+    BASE_PATH + '/travelphotos/templates/',
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -111,6 +113,8 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'photos',
+    'south'
     # Uncomment the next line to enable the admin:
     # 'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
