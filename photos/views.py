@@ -8,20 +8,29 @@ from photos.models import Photo
 from photos.forms import PhotoForm
 
 def index(request):
+    photos = Photo.objects.all()
+
+    return render_to_response(
+        'photos/index.html',
+        {'photos': photos},
+        context_instance=RequestContext(request)
+    )
+
+def new(request):
     if request.method == 'POST':
         form = PhotoForm(request.POST, request.FILES)
         if form.is_valid():
-            photo = Photo(image = request.FILES['image'])
+            photo = Photo(
+                title = form.cleaned_data['title'],
+                image = request.FILES['image'])
             photo.save()
 
             return HttpResponseRedirect(reverse('photos:index'))
     else:
         form = PhotoForm()
 
-    photos = Photo.objects.all()
-
     return render_to_response(
-        'photos/index.html',
-        {'photos': photos, 'form': form},
+        'photos/new.html',
+        {'form': form},
         context_instance=RequestContext(request)
     )

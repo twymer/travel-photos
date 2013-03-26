@@ -1,32 +1,18 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Blah</title>
-  </head>
-  <body>
-    {% if photos %}
-      <ul>
-        {% for photo in photos %}
-        <li>
-          <a href="/{{ photo.image.url }}">
-            <img src="/{{ photo.image.url }}">
-          </a></li>
-        {% endfor %}
-      </ul>
-    {% else %}
-      <p>None</p>
-    {% endif %}
+{% extends 'base.html' %}
 
-    <form action="{% url 'photos:index' %}" method="post" enctype="multipart/form-data">
-      {% csrf_token %}
-      <p>{{ form.non_field_errors }}</p>
-      <p>{{ form.image.label_tag }} help text</p>
-      <p>
-        {{ form.image.errors }}
-        {{ form.image }}
-      </p>
-      <p><input type="submit" value="Upload" /></p>
-    </form>
-  </body>
-</html>
+{% block body %}
+  {% if photos %}
+    <ul>
+      {% for photo in photos %}
+      <li>
+        <p>{{ photo.title }}</p>
+        <br />
+        <a href="/{{ photo.image.url }}">
+          <img src="/{{ photo.image.url }}">
+        </a></li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>None</p>
+  {% endif %}
+{% endblock %}
