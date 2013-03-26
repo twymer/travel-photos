@@ -8,7 +8,10 @@
     {% if photos %}
       <ul>
         {% for photo in photos %}
-          <li><a href="{{ photo.image.url }}">{{ photo.image.name }}</a></li>
+        <li>
+          <a href="/{{ photo.image.url }}">
+            <img src="/{{ photo.image.url }}">
+          </a></li>
         {% endfor %}
       </ul>
     {% else %}
