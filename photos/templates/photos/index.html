@@ -6,6 +6,7 @@
       {% for photo in photos %}
       <li>
         <p>{{ photo.title }}</p>
+        <p>{{ photo.latitude }}, {{ photo.longitude }}</p>
         <br />
         <a href="/{{ photo.image.url }}">
           <img src="/{{ photo.image.url }}">

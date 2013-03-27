@@ -22,7 +22,8 @@ def new(request):
         if form.is_valid():
             photo = Photo(
                 title = form.cleaned_data['title'],
-                image = request.FILES['image'])
+                image = request.FILES['image'],
+            )
             photo.save()
 
             return HttpResponseRedirect(reverse('photos:index'))
