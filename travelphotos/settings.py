@@ -114,7 +114,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'photos',
-    'south'
+    'south',
+    'leaflet',
     # Uncomment the next line to enable the admin:
     # 'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
@@ -148,6 +149,10 @@ LOGGING = {
             'propagate': True,
         },
     }
+}
+
+LEAFLET_CONFIG = {
+    'TILES_URL': 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
 }
 
 # Parse database configuration from $DATABASE_URL for Heroku

@@ -1,7 +1,14 @@
+{% load leaflet_tags %}
+{% load staticfiles %}
+
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
+    {% leaflet_js %}
+    {% leaflet_css %}
+    <script type="text/javascript" src="/media/js/jquery-1.9.1.min.js"></script>
+    {% block includes %}{% endblock %}
     <title>
       {% block title %}
       Travel Photos
