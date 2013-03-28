@@ -9,6 +9,6 @@ window.customMap = function (map) {
 
   for (var i = 0; i < gpsList.length; i++) {
     console.log(gpsList[i]);
-    L.marker(gpsList[i]).addTo(map);
+    L.marker(gpsList[i]).addTo(map).bindPopup("I am a picture.");
   }
 }

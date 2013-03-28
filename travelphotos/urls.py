@@ -1,12 +1,17 @@
 from django.conf.urls import patterns, include, url
 from django.conf import settings
 
+from travelphotos import views
+
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
 # admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'^photos/', include('photos.urls', namespace='photos')),
+
+    url(r'^login/$', 'django.contrib.auth.views.login'),
+    url(r'^logout/$', views.logout_page),
 
     # Examples:
     # url(r'^$', 'travelphotos.views.home', name='home'),

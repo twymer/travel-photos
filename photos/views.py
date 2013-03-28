@@ -3,6 +3,7 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.core.urlresolvers import reverse
 from django.template import Context, loader, RequestContext
 from django.shortcuts import render_to_response
+from django.contrib.auth.decorators import login_required
 
 from photos.models import Photo
 from photos.forms import PhotoForm
@@ -16,6 +17,7 @@ def index(request):
         context_instance=RequestContext(request)
     )
 
+@login_required
 def new(request):
     if request.method == 'POST':
         form = PhotoForm(request.POST, request.FILES)

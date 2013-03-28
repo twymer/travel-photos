@@ -151,6 +151,8 @@ LOGGING = {
     }
 }
 
+LOGIN_URL = '/login/'
+
 LEAFLET_CONFIG = {
     'TILES_URL': 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
 }
