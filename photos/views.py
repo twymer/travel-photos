@@ -25,6 +25,7 @@ def new(request):
             photo = Photo(
                 title = form.cleaned_data['title'],
                 image = request.FILES['image'],
+                user = request.user,
             )
             photo.save()
 

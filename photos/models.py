@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # For image data parsing
 from PIL import Image
@@ -10,6 +11,7 @@ class Photo(models.Model):
     description = models.CharField(max_length=200)
     latitude = models.FloatField(null=True, blank=True)
     longitude = models.FloatField(null=True, blank=True)
+    user = models.ForeignKey(User)
 
     def process_exif(self):
         info = Image.open(self.image.file)._getexif()

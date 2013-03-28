@@ -12,7 +12,8 @@
     <ul>
       {% for photo in photos %}
       <li>
-        <p>{{ photo.title }}</p>
+        <p>Title: {{ photo.title }}</p>
+        <p>Submitted by: {{ photo.user }}</p>
         <p class="gps">{{ photo.latitude }}, {{ photo.longitude }}</p>
         <br />
         <a href="/{{ photo.image.url }}">
