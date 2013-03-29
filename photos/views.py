@@ -17,6 +17,12 @@ def index(request):
         context_instance=RequestContext(request)
     )
 
+def detail(request, photo_id):
+    photo = get_object_or_404(Photo, pk=photo_id)
+    return render_to_response('photos/detail.html',
+                              {'photo': photo},
+                              context_instance=RequestContext(request))
+
 @login_required
 def new(request):
     if request.method == 'POST':

@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <p>Title: {{ photo.title }}</p>
+    <p>Submitted by: {{ photo.user }}</p>
+    <p class="gps">{{ photo.latitude }}, {{ photo.longitude }}</p>
+    <br />
+    <img src="/{{ photo.image.url }}">
+{% endblock %}
